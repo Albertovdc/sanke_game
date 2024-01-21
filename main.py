@@ -19,6 +19,14 @@ screen.title("Snake Game")
 #   body_snake.append(segment)
 snake = Snake()
 
+# Snake directions
+screen.listen()
+screen.onkey(snake.up, "Up")
+screen.onkey(snake.down, "Down")
+screen.onkey(snake.right, "Right")
+screen.onkey(snake.left, "Left")
+
+
 # Move snake
 game_on = True
 while game_on:

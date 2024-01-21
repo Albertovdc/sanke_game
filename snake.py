@@ -22,3 +22,13 @@ class Snake:
       self.body_snake[segm].goto(new_x, new_y)
 
     self.body_snake[0].forward(20)
+  def up(self):
+    self.body_snake[0].setheading(90)
+  def down(self):
+    self.body_snake[0].setheading(270)
+
+  def right(self):
+    self.body_snake[0].setheading(0)
+
+  def left(self):
+    self.body_snake[0].setheading(180)
