@@ -53,5 +53,8 @@ while game_on:
   if snake.body_snake[0].distance(food) < 15:
     food.reappear()
     scoreboard.increase_score()
+  if snake.body_snake[0].xcor() > 280 or snake.body_snake[0].xcor() < -280 or snake.body_snake[0].ycor() > 280 or snake.body_snake[0].ycor() < -280:
+    game_on = False
+    scoreboard.game_over()
 
 screen.exitonclick()
