@@ -1,4 +1,6 @@
 from turtle import Turtle
+
+
 class Scoreboard(Turtle):
   def __init__(self):
     super().__init__()
@@ -10,7 +12,6 @@ class Scoreboard(Turtle):
 
   def update_score(self):
     self.write(f"Score : {self.score}", align="center", font=("Arial", 14, "normal"))
-
 
   def increase_score(self):
     self.clear()

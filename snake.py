@@ -1,19 +1,24 @@
 from turtle import Turtle
-
+# I added this modification because the moment the snake increases the size appears a white square in the center of the
+# screen
+STARTING_POSITIONS = [(0, 0), (-20, 0), (-40, 0)]
 
 class Snake:
   def __init__(self):
-    self.position = [0, -20, -40]
     self.body_snake = []
     self.create_body()
 
   def create_body(self):
-    for n in self.position:
-      segment = Turtle("square")
-      segment.color("white")
-      segment.penup()
-      segment.goto(n, 0)
-      self.body_snake.append(segment)
+    for coords in STARTING_POSITIONS:
+      self.add_segment(coords)
+
+  def add_segment(self, coord):
+    segment = Turtle("square")
+    segment.speed("fastest")
+    segment.color("white")
+    segment.penup()
+    segment.goto(coord)
+    self.body_snake.append(segment)
 
   def move(self):
     for segm in range(len(self.body_snake) - 1, 0, -1):

@@ -9,7 +9,7 @@ class Food(Turtle):
     self.shapesize(stretch_wid=0.5, stretch_len=0.5)
     self.reappear()
     # I think that this line is not necessary at all
-    # self.speed("fastest")
+    self.speed("fastest")
 
   def reappear(self):
     x_coord = random.randint(-280, 280)
