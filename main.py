@@ -4,6 +4,7 @@ import time
 from scoreboard import Scoreboard
 from snake import Snake
 from food import Food
+
 # Screen set up
 screen = Screen()
 screen.tracer(0)
@@ -32,7 +33,6 @@ screen.onkey(snake.down, "Down")
 screen.onkey(snake.right, "Right")
 screen.onkey(snake.left, "Left")
 
-
 # Move snake
 game_on = True
 while game_on:
@@ -55,8 +55,17 @@ while game_on:
     snake.add_segment(snake.body_snake[-1].position())
     scoreboard.increase_score()
 
-  if snake.body_snake[0].xcor() > 280 or snake.body_snake[0].xcor() < -280 or snake.body_snake[0].ycor() > 280 or snake.body_snake[0].ycor() < -280:
+  # snake colides with the wall
+  if snake.body_snake[0].xcor() > 280 or snake.body_snake[0].xcor() < -280 or snake.body_snake[0].ycor() > 280 or \
+      snake.body_snake[0].ycor() < -280:
     game_on = False
     scoreboard.game_over()
+
+  for segment in snake.body_snake[1:]:
+    # if segment == snake.body_snake[0]:
+    #   pass
+    if snake.body_snake[0].distance(segment) < 10:
+      game_on = False
+      scoreboard.game_over()
 
 screen.exitonclick()
