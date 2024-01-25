@@ -41,3 +41,9 @@ class Snake:
   def left(self):
     if self.body_snake[0].heading() != 0:
       self.body_snake[0].setheading(180)
+
+  def reset(self):
+    for item in self.body_snake:
+      item.goto(1000,1000)
+    self.body_snake.clear()
+    self.create_body()
